@@ -1,0 +1,48 @@
+From e0f075853c23e8239e05d88b2e1f5c980c0cdfa2 Mon Sep 17 00:00:00 2001
+From: wjyrich <1071633242@qq.com>
+Date: Thu, 12 Sep 2024 13:28:43 +0800
+Subject: [PATCH] install
+
+---
+ app/QRegovar.desktop | 11 +++++++++++
+ app/QRegovar.pro     |  7 +++++++
+ 2 files changed, 18 insertions(+)
+ create mode 100644 app/QRegovar.desktop
+
+diff --git a/app/QRegovar.desktop b/app/QRegovar.desktop
+new file mode 100644
+index 0000000..c2e3baa
+--- /dev/null
++++ b/app/QRegovar.desktop
+@@ -0,0 +1,11 @@
++[Desktop Entry]
++Categories=Accessibility;Qt;Utility;
++Exec=QRegovar
++Name=QRegovar
++Name[zh_CN]=QRegovar
++Icon=QRegovar
++StartupNotify=false
++Terminal=false
++Type=Application
++GenericName=QRegovar
++Version=0.13
+\ No newline at end of file
+diff --git a/app/QRegovar.pro b/app/QRegovar.pro
+index a6f5c84..da1fa62 100644
+--- a/app/QRegovar.pro
++++ b/app/QRegovar.pro
+@@ -249,3 +249,10 @@ RESOURCES += \
+ DISTFILES += \
+     Assets/license.html
+ 
++target.path = $$PREFIX/bin
++desktop.files = QRegovar.desktop
++desktop.path = $$PREFIX/share/applications/
++icons.path = $$PREFIX/share/icons/hicolor/apps/
++icons.files = Assets/QRegovar.png
++
++INSTALLS += target desktop icons
+\ No newline at end of file
+-- 
+2.43.4
+

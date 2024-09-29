@@ -1,0 +1,30 @@
+version: "1"
+
+package:
+  id: io.github.QRegovar
+  name: QRegovar
+  version: 1.13.0.0
+  kind: app
+  description: |
+    The official heavy client (in Qt) of the Regovar project
+
+command:
+  - /opt/apps/io.github.QRegovar/files/bin/QRegovar
+
+base: org.deepin.foundation/23.0.0
+runtime: org.deepin.Runtime/23.0.1
+
+sources:
+  - kind: git
+    url: https://github.com/REGOVAR/QRegovar.git
+    version: master
+    commit: f8fce050eec6b83adeadbb1c0130b97febe69b76
+
+build: |
+  cd /project/linglong/sources/QRegovar.git
+  git apply ../../../0001-install.patch
+  cp app/Assets/logo.png app/Assets/QRegovar.png
+  cd app
+  qmake -makefile PREFIX=${PREFIX} LIB_INSTALL_DIR=${PREFIX}/lib/${TRIPLET}
+  make -j$(nproc)
+  make install
